@@ -1,0 +1,12 @@
+[
+    {
+        "nome": "Maria Beatriz Pais",
+        "idade": 20,
+        "morada": "Foros de Salvaterra",
+        "notas": [
+            9.0,
+            6.0,
+            3.0
+        ]
+    }
+]

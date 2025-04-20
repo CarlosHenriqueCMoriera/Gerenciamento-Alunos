@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciamento de Alunos</title>
+    <style>
+        body {
+            background-color: rgb(243, 216, 216);
+        }
+
+        header {
+            background-color: rgba(172, 13, 13, 0.952);
+            padding: 20px;
+            color: white;
+        }
+
+        h1 {
+            font-size: 40px;
+            text-align: center;
+        }
+
+        .name,
+        .age,
+        .address,
+        .Grade {
+            width: 500px;
+            padding: 7px;
+            margin-top: 10px;
+            display: block;
+        }
+
+        .Resultado {
+            font-size: 22px;
+        }
+
+        .box {
+            margin-top: 30px;
+            background-color: rgba(172, 21, 21, 0.233);
+            padding: 20px;
+        }
+
+        .pInicio {
+            font-size: 22px;
+            text-align: justify;
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .clean {
+            margin-top: 20px;
+            padding: 8px 2px;
+            font-size: 16px;
+            background-color: rgba(231, 100, 100, 0.486);
+
+        }
+
+        h3 {
+            font-size: 30px;
+            position: relative;
+            top: -600px;
+            font-weight: bold;
+            margin-left: 800px;
+            font-weight: bold;
+            z-index: 2px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(22, 8, 8, 0.7);
+            
+
+        }
+
+        .discription {
+            position: relative;
+            top: -680px;
+            margin-left: 600px;
+            font-size: 28px;
+            text-align: justify;
+            box-shadow: 30px;
+            width: 600px;
+            height: 170px;
+            background-color: rgba(172, 13, 13, 0.3);
+            padding: 70px;
+            z-index: 1px;
+            color: white;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Knowledge University</header>
+
+    <h1 class="title">Student Grades Manager</h1>
+    <p class="pInicio">Insert your student details to receive your school average and find out whether you have passed
+        or not.</p>
+
+    <form method="POST" action="/">
+        <p>Insert your Name:</p>
+        <input type="text" name="name" class="name" required>
+
+        <p>Insert your Age:</p>
+        <input type="text" name="age" class="age" required>
+
+        <p>Insert your Address:</p>
+        <input type="text" name="address" class="address" required>
+
+        <p>Insert your 1st Grade:</p>
+        <input type="text" name="grade1" class="Grade" required>
+
+        <p>Insert your 2nd Grade:</p>
+        <input type="text" name="grade2" class="Grade" required>
+
+        <p>Insert your 3rd Grade:</p>
+        <input type="text" name="grade3" class="Grade" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+
+    {% if resultado %}
+    <div class="box">
+        <output class="Resultado">Result: {{ resultado }}</output>
+    </div>
+    {% endif %}
+
+    {% if alunos %}
+    <h2>Alunos cadastrados:</h2>
+    <ul>
+        {% for aluno in alunos %}
+        <li>{{ aluno.nome }} - {{ aluno.notas }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+    <!-- Formulário para limpar os dados -->
+    <form action="/limpar" method="POST">
+        <button type="submit" class="clean">Limpar Todos os Dados</button>
+    </form>
+    <h3>Welcome To The Page</h3>
+    <p class="discription">Insert your data and your grades on the register system of the university. After this, the
+        secretary will validate your grades and you will recive an email to confirm your inscription for the next school
+        year.</p>
+</body>
+
+</html>
