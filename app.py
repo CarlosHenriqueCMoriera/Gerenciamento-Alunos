@@ -69,6 +69,11 @@ def limpar():
     limpar_dados()  # Chama a função que apaga os dados
     return redirect(url_for('index'))  # Redireciona de volta para a página inicial
 
+# Ajuste para o Render
 if __name__ == "__main__":
-   app.run(debug=True, host="0.0.0.0")
+    port = int(os.environ.get("PORT", 5000))  # Usa a variável de ambiente PORT fornecida pelo Render
+   import os
+
+port = os.environ.get('PORT', 8080)  # Usa a porta 8080 ou a fornecida pelo Render
+app.run(host='0.0.0.0', port=port)
 
